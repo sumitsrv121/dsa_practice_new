@@ -2,7 +2,8 @@ package basic_math;
 
 public class PalindromeNumber {
     public static void main(String[] args) {
-
+        PalindromeNumber pn = new PalindromeNumber();
+        System.out.println(pn.isPalindrome(121));
     }
 
     public boolean isPalindrome(int n) {
