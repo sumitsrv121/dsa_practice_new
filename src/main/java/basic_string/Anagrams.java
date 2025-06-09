@@ -30,7 +30,8 @@ public class Anagrams {
         }
 
         for (Map.Entry<Character, Integer> entry : sMap.entrySet()) {
-            if (!tMap.containsKey(entry.getKey()) || !Objects.equals(tMap.get(entry.getKey()), entry.getValue())) {
+            if (!tMap.containsKey(entry.getKey()) ||
+                    !Objects.equals(tMap.get(entry.getKey()), entry.getValue())) {
                 return false;
             }
         }
