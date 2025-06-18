@@ -1,11 +1,9 @@
 package array.faqs_hard;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class CountInversions {
-    private int count = 0;
 
     public static void main(String[] args) {
         int[] nums = {2, 3, 7, 1, 3, 5};
@@ -15,23 +13,24 @@ public class CountInversions {
     }
 
     public long numberOfInversions(int[] nums) {
-        count = 0;
-        mergeSort(nums, 0, nums.length - 1);
+        return mergeSort(nums, 0, nums.length - 1);
+    }
+
+    public long mergeSort(int[] arr, int start, int end) {
+        long count = 0;
+        if (start < end) {
+            int mid = (start + end) / 2;
+            count += mergeSort(arr, start, mid);
+            count += mergeSort(arr, mid + 1, end);
+            count += merge(arr, start, mid, end);
+        }
         return count;
     }
 
-    public void mergeSort(int[] arr, int start, int end) {
-        if (start < end) {
-            int mid = (start + end) / 2;
-            mergeSort(arr, start, mid);
-            mergeSort(arr, mid + 1, end);
-            merge(arr, start, mid, end);
-        }
-    }
-
-    private void merge(int[] arr, int start, int mid, int end) {
+    private long merge(int[] arr, int start, int mid, int end) {
         int l = start;
         int r = mid + 1;
+        long count = 0;
 
         List<Integer> al = new ArrayList<>();
 
@@ -56,6 +55,7 @@ public class CountInversions {
         for (int i = start, j = 0; i <= end; i++, j++) {
             arr[i] = al.get(j);
         }
+        return count;
     }
 
     private static long bruteForceSolution(int[] nums) {
