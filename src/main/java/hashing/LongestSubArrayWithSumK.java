@@ -55,4 +55,31 @@ public class LongestSubArrayWithSumK {
 
         return maxLength;
     }
+
+    private static int longestSubArrayWithAllPositiveSumK(int[] nums, int k) {
+        int i = 0;
+        int j = 0;
+
+        int maxLen = 0;
+        int sum = 0;
+
+        while (i < nums.length && j < nums.length) {
+            sum += nums[j];
+
+            if (sum == k) {
+                maxLen = Math.max(maxLen, j - i + 1);
+                j++;
+            } else if (sum < k) {
+                j++;
+                sum -= nums[i];
+                i++;
+            } else {
+                sum -= (nums[i] + nums[j]);
+                i++;
+            }
+        }
+
+        return maxLen;
+
+    }
 }
