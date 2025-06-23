@@ -11,6 +11,28 @@ public class GroupWordsByAnagram {
     }
 
     public List<List<String>> groupAnagrams(String[] strs) {
+        Map<String, List<String>> characterMapToStr = new HashMap<>();
+
+        for (String str : strs) {
+
+            int[] countArr = new int[26];
+            for (char c: str.toCharArray()) {
+                countArr[c - 'a'] += 1;
+            }
+
+            StringBuilder builder = new StringBuilder();
+            for (int count: countArr) {
+                builder.append(count);
+                builder.append("#");
+            }
+            String countStr = builder.toString();
+
+            characterMapToStr.computeIfAbsent(countStr, k -> new ArrayList<>()).add(str);
+        }
+        return new ArrayList<>(characterMapToStr.values());
+    }
+
+    private static ArrayList<List<String>> bruteForce(String[] strs) {
         Map<String, List<String>> anagramGroup = new HashMap<>();
         for (String str: strs) {
             char[] arr = str.toCharArray();
@@ -18,14 +40,7 @@ public class GroupWordsByAnagram {
 
             String newStr = new String(arr);
 
-            List<String> list;
-            if (anagramGroup.containsKey(newStr)) {
-                list = anagramGroup.get(newStr);
-            } else {
-                list = new ArrayList<>();
-            }
-            list.add(str);
-            anagramGroup.put(newStr, list);
+            anagramGroup.computeIfAbsent(newStr, k -> new ArrayList<>()).add(str);
         }
         return new ArrayList<>(anagramGroup.values());
     }
