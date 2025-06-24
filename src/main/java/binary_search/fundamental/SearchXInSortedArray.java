@@ -5,6 +5,8 @@ public class SearchXInSortedArray {
         SearchXInSortedArray searchXInSortedArray = new SearchXInSortedArray();
         System.out.println(searchXInSortedArray.search(new int[]{-1, 0, 3, 5, 9, 12}, 9));
         System.out.println(searchXInSortedArray.search(new int[]{-1, 0, 3, 5, 9, 12}, 2));
+        System.out.println(searchXInSortedArray.searchUsingRecursion(new int[]{-1, 0, 3, 5, 9, 12}, 0, 5, 9));
+        System.out.println(searchXInSortedArray.searchUsingRecursion(new int[]{-1, 0, 3, 5, 9, 12}, 0, 5, 2));
 
     }
 
@@ -21,6 +23,21 @@ public class SearchXInSortedArray {
                 start = mid + 1;
             } else {
                 end = mid - 1;
+            }
+        }
+        return -1;
+    }
+
+    public int searchUsingRecursion(int[] nums, int start, int end, int target) {
+        if (start <= end) {
+            int mid = start + ((end - start) / 2);
+
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] < target) {
+                return searchUsingRecursion(nums, mid + 1, end, target);
+            } else {
+                return searchUsingRecursion(nums, start, mid - 1, target);
             }
         }
         return -1;
