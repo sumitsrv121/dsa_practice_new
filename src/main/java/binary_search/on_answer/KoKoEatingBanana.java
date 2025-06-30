@@ -5,10 +5,10 @@ import java.util.Arrays;
 public class KoKoEatingBanana {
     public static void main(String[] args) {
         KoKoEatingBanana koKoEatingBanana = new KoKoEatingBanana();
-        //System.out.println(koKoEatingBanana.minimumRateToEatBananas(new int[]{7, 15, 6, 3}, 8));
-        //System.out.println(koKoEatingBanana.minimumRateToEatBananas(new int[]{25, 12, 8, 14, 19}, 5));
-        //System.out.println(koKoEatingBanana.minimumRateToEatBananas(new int[]{3, 7, 6, 11}, 8));
-        //System.out.println(koKoEatingBanana.minimumRateToEatBananas(new int[]{238, 838, 453, 264}, 816));
+        System.out.println(koKoEatingBanana.minimumRateToEatBananas(new int[]{7, 15, 6, 3}, 8));
+        System.out.println(koKoEatingBanana.minimumRateToEatBananas(new int[]{25, 12, 8, 14, 19}, 5));
+        System.out.println(koKoEatingBanana.minimumRateToEatBananas(new int[]{3, 7, 6, 11}, 8));
+        System.out.println(koKoEatingBanana.minimumRateToEatBananas(new int[]{238, 838, 453, 264}, 816));
         System.out.println(koKoEatingBanana.minimumRateToEatBananas(new int[]{805306368, 805306368, 805306368}, 1000000000));
     }
 
