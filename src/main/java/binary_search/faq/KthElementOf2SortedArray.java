@@ -3,8 +3,8 @@ package binary_search.faq;
 public class KthElementOf2SortedArray {
     public static void main(String[] args) {
         KthElementOf2SortedArray kthElementOf2SortedArray = new KthElementOf2SortedArray();
-        //System.out.println(kthElementOf2SortedArray.kthElement(new int[]{2, 3, 6, 7, 9}, new int[]{1, 4, 8, 10}, 5));
-        //System.out.println(kthElementOf2SortedArray.kthElement(new int[]{100, 112, 256, 349, 770}, new int[]{72, 86, 113, 119, 265, 445, 892}, 7));
+        System.out.println(kthElementOf2SortedArray.kthElement(new int[]{2, 3, 6, 7, 9}, new int[]{1, 4, 8, 10}, 5));
+        System.out.println(kthElementOf2SortedArray.kthElement(new int[]{100, 112, 256, 349, 770}, new int[]{72, 86, 113, 119, 265, 445, 892}, 7));
         System.out.println(kthElementOf2SortedArray.kthElement(new int[]{2, 3, 6}, new int[]{7, 9}, 4));
     }
 
