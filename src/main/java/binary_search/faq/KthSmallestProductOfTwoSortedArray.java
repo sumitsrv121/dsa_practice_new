@@ -1,6 +1,5 @@
 package binary_search.faq;
 
-import java.util.Comparator;
 import java.util.Optional;
 import java.util.PriorityQueue;
 
